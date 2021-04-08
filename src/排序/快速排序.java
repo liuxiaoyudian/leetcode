@@ -10,7 +10,7 @@ public class 快速排序 {
         }
     }
 
-    public static void quickSort(int arr[], int l, int r) {
+    public static void quickSort(int[] arr, int l, int r) {
         if (l < r) {
             int i = l, j = r, x = arr[l];
             while (i < j) {
