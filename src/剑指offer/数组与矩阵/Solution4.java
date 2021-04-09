@@ -20,7 +20,7 @@ public class Solution4 {
             }
             if (target < array[r][c]) {
                 c--;
-            } else {
+            } else { // 这里必须用else！！！ 因为一次while循环，只能出现c--或者r++，不能同时出现！
                 r++;
             }
         }
