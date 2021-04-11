@@ -26,7 +26,7 @@ public class Solution32_2 {
                 queue.add(node.left);
                 queue.add(node.right);
             }
-            if (list.size() != 0)
+            if (list.size() != 0) // 注意这个判断是必须的！
                 ret.add(list);
         }
         return ret;
