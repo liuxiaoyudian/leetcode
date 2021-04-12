@@ -21,7 +21,7 @@ public class 归并排序 {
 
     /**
      * Merges two subarray of arr[]
-     * First subarray is arr[1...m]
+     * First subarray is arr[l...m]
      * Second subarray is arr[m+1...r]
      * @param arr
      * @param l

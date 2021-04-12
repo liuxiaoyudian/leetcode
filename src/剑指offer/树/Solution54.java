@@ -35,11 +35,8 @@ public class Solution54 {
         if (index == k) {
             return pRoot;
         }
-        node = KthNode(pRoot.right, k);
-        if (node != null) {
-            return node;
-        }
-        return null;
+        return KthNode(pRoot.right, k);
+
     }
 
 }
