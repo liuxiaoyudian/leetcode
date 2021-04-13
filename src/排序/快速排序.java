@@ -10,6 +10,13 @@ public class 快速排序 {
         }
     }
 
+    /**
+     * 空间复杂度：O(logN)
+     * 每次递归传参left，和right，平均递归次数是log(n)次，所以平均空间复杂度是O(log(n))
+     * @param arr
+     * @param l
+     * @param r
+     */
     public static void quickSort(int[] arr, int l, int r) {
         if (l < r) {
             int i = l, j = r, x = arr[l];
