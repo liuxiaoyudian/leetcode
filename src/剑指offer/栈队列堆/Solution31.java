@@ -44,6 +44,7 @@ public class Solution31 {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0, j = 0; i < pushA.length; i++) {
             stack.push(pushA[i]);
+            // 注意不要漏了 !stack.isEmpty() 这个条件
             while (j < popA.length && !stack.isEmpty() && stack.peek() == popA[j]) {
                 stack.pop();
                 j++;

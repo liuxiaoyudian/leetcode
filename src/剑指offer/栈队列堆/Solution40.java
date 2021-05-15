@@ -2,8 +2,10 @@ package 剑指offer.栈队列堆;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class Solution40 {
+
 
 
     /**
@@ -69,6 +71,31 @@ public class Solution40 {
             quickSort(arr, i + 1, r);
         }
 
+    }
+
+    /**
+     * 使用堆
+     * 维护一个大小为 K 的最小堆过程如下：使
+     * 用大顶堆。在添加一个元素之后，如果大顶堆的大小大于 K，那么将大顶堆的堆顶元素去除，也就是将当前堆中值最大的元素去除，从而使得留在堆中的元素都比被去除的元素来得小。
+     * 应该使用大顶堆来维护最小堆，而不能直接创建一个小顶堆并设置一个大小，企图让小顶堆中的元素都是最小元素。
+     *
+     * PriorityQueue 默认是小顶堆
+     * @param input
+     * @param k
+     * @return
+     */
+    public ArrayList<Integer> GetLeastNumbers_Solution2(int [] input, int k) {
+        if (input == null || k > input.length) {
+            return new ArrayList<>();
+        }
+        PriorityQueue<Integer> maxQueue = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        for (int i : input) {
+            maxQueue.add(i);
+            if (maxQueue.size() > k) {
+                maxQueue.poll();
+            }
+        }
+        return new ArrayList<>(maxQueue);
     }
 
 }

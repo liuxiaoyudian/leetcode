@@ -21,7 +21,7 @@ public class 插入排序 {
         }
         // 外层循环控制需要排序的趟数（从1开始因为将第0位看成了有序数据）
         for (int i = 1; i < arr.length; i++) {
-            int temp = arr[i];
+            int temp = arr[i]; // 把要插入的这个数据暂存起来，因为后移操作，可能会覆盖这个值
             int j;
             for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
                 arr[j + 1] = arr[j];  // 后移

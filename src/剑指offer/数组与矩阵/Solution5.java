@@ -25,7 +25,7 @@ public class Solution5 {
             }
         }
         int p2 = str.length() - 1;
-        while (p1 >= 0 && p2 > p1) {
+        while (p1 < p2) { // 结束条件是p1 == p2
             char c = str.charAt(p1--);
             if (c == ' ') {
                 str.setCharAt(p2--, '0');
