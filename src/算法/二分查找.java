@@ -13,16 +13,16 @@ public class 二分查找 {
     }
 
     public static int binarySearch(int[] arr, int target) {
-        int i = 0;
-        int j = arr.length - 1;
-        while (i <= j) { // 注意这里是是<=，意味着是区间是左闭右闭的
-            int mid = j + (i - j) / 2; // 避免mid溢出
+        int l = 0;
+        int r = arr.length - 1;  // 定义target在左闭右闭的区间里，[left, right]
+        while (l <= r) { // 当left==right，区间[left, right]依然有效，所以用 <=
+            int mid = r + ((l - r) >> 1); // 避免mid溢出，位移运算更快
             if (target == arr[mid]) {
                 return mid;
             } else if (target < arr[mid]) {
-                j = mid - 1;
+                r = mid - 1;
             } else if (target > arr[mid]) {
-                i = mid + 1;
+                l = mid + 1;
             }
         }
         return -1;
