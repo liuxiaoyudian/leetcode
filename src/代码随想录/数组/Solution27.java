@@ -33,14 +33,14 @@ public class Solution27 {
      * 空间复杂度：O(1)
      */
     public int removeElement1(int[] nums, int val) {
-        int slowIndex = 0;
-        for (int fastIndex = 0; fastIndex < nums.length; fastIndex++) {
-            if (nums[fastIndex] != val) {
-                nums[slowIndex] = nums[fastIndex];
-                slowIndex++;
+        int slow = 0;
+        for (int fast = 0; fast < nums.length; fast++) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
             }
         }
-        return slowIndex; // 注意此时slowIndex就等于数组的新长度
+        return slow; // 注意此时slowIndex就等于数组的新长度
     }
 
 }

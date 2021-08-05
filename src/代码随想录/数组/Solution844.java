@@ -8,13 +8,20 @@ import java.util.Stack;
  */
 public class Solution844 {
 
+    public static void main(String[] args) {
+        String s = "ab##";
+        String t = "c#d#";
+        System.out.println(backspaceCompare(s, t));
+    }
+
     /**
      * 双指针
      *
      * 时间复杂度：O(N + M)，其中 N 和 M 分别为字符串 S 和 T 的长度。我们需要遍历两字符串各一次
      * 空间复杂度：O(1)
      */
-    public boolean backspaceCompare(String s, String t) {
+    public static boolean backspaceCompare(String s, String t) {
+        // 这里的i和j就是两个指针
         int i = s.length() - 1, j = t.length() - 1; // 逆序遍历字符串
         int skipS = 0, skipT = 0;
         while (i >= 0 || j >= 0) {
@@ -45,6 +52,8 @@ public class Solution844 {
                     return false;
                 }
             } else {
+                // 并不是一定能找到一个确定的字符，也有可能全部删了
+                // 例子：ab##和c#d#，第一轮下来i=-1，j=-1
                 if (i >= 0 || j >= 0) { // 必须要有这个if
                     return false;
                 }
@@ -68,7 +77,7 @@ public class Solution844 {
             if (c != '#') {
                 stack.push(c);
             } else {
-                if (!stack.isEmpty()) {
+                if (!stack.isEmpty()) { // 栈内没有元素的时候调用pop会报错，对应着条件：如果对空文本输入退格字符，文本继续为空
                     stack.pop();
                 }
             }

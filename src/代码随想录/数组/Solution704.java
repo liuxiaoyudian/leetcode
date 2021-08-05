@@ -1,7 +1,7 @@
 package 代码随想录.数组;
 
 /**
- * 704. 二分查找
+ * 704. 二分查找（分治法）
  * https://leetcode-cn.com/problems/binary-search/
  * https://github.com/liuxiaoyudian/leetcode-master/blob/master/problems/0704.二分查找.md
  *
@@ -10,16 +10,15 @@ package 代码随想录.数组;
  * 2. 无重复元素
  *
  * 拓展内容：
- * https://blog.csdn.net/qwe0754444/article/details/84975295
  * https://www.cnblogs.com/kyoner/p/11080078.html
  */
 class Solution704 {
 
     // 写法1：左闭右闭[left, right]
-    public int search(int[] nums, int target) {
+    public int binarySearch(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
-            int mid = l + ((r - l) >> 1);
+            int mid = l + ((r - l) >> 1);  // 注意这还有一个括号，右移运算符的优先级很低
             if (target == nums[mid]) {
                 return mid;
             } else if (target < nums[mid]) {
@@ -32,7 +31,7 @@ class Solution704 {
     }
 
     // 写法2：左闭右开[left, right)
-    public int search1(int[] nums, int target) {
+    public int binarySearch1(int[] nums, int target) {
         int l = 0, r = nums.length;
         while (l < r) {
             int mid = l + ((r - l) >> 1);

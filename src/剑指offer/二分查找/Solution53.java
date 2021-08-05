@@ -7,6 +7,7 @@ public class Solution53 {
         System.out.println(GetNumberOfK(arr, 3));
     }
 
+
     public static int GetNumberOfK(int [] array , int k) {
         // 寻找左侧边界的二分搜索
         int i = 0;
