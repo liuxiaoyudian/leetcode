@@ -1,4 +1,4 @@
-package leetcode.简单;
+package 代码随想录.链表;
 
 import leetcode.ListNode;
 
@@ -12,9 +12,6 @@ public class Solution203 {
 
     /**
      * 普通的处理方法，要有处理头节点和非头节点的逻辑
-     * @param head
-     * @param val
-     * @return
      */
     public ListNode removeElements(ListNode head, int val) {
         // 删除头节点
@@ -37,13 +34,9 @@ public class Solution203 {
 
     /**
      * 使用了虚拟头节点的实现，只有一种处理逻辑（此处是把头节点也当成了非头节点来处理）
-     * @param head
-     * @param val
-     * @return
      */
     public ListNode removeElements1(ListNode head, int val) {
-        ListNode dummyHead = new ListNode(-1);
-        dummyHead.next = head;
+        ListNode dummyHead = new ListNode(-1, head);
         ListNode cur = dummyHead;
         while (cur.next != null) {
             if (cur.next.val == val) {
