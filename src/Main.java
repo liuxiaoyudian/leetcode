@@ -1,12 +1,17 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
+    public static void main(String[] args) {
+        System.out.println(test());
+    }
 
+    public static int test() {
+        int i = 10;
+        try {
+            return i;
+        } finally {
+            i = 20;
+        }
+    }
 
 }

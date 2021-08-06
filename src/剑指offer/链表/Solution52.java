@@ -34,9 +34,6 @@ public class Solution52 {
      * 另外一种理解方式：
      * 假设两个链标分别是l1和l2，在l1后面拼上l2组成新的l1，在l2的后面拼上l1组成新的l2。此时l1和l2的长度相同。
      * 然后同时遍历l1和l2。
-     * @param pHead1
-     * @param pHead2
-     * @return
      */
     public ListNode FindFirstCommonNode1(ListNode pHead1, ListNode pHead2) {
         ListNode l1 = pHead1, l2 = pHead2;

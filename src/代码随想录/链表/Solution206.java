@@ -14,12 +14,12 @@ public class Solution206 {
     public ListNode reverseList(ListNode head) {
         ListNode prev = null; // 保存前一个节点
         ListNode cur = head; // 当前节点
-        ListNode temp = null; // 保存下一个节点
+        ListNode next = null; // 保存下一个节点
         while (cur != null) {
-            temp = cur.next;
+            next = cur.next;
             cur.next = prev;
             prev = cur;
-            cur = temp;
+            cur = next;
         }
         return prev;
     }
