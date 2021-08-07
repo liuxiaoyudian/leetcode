@@ -7,26 +7,24 @@ package 排序;
 public class 插入排序 {
 
     public static void main(String[] args) {
-        int[] arr = {2, 5, 1, 3, 8, 5, 7, 4, 3};
-        insertionSort(arr);
-        for (int i : arr) {
+        int[] nums = {2, 5, 1, 0, -10, 3, 8, 1000, -200, 5, 7, 4, 3};
+        insertionSort(nums);
+        for (int i : nums) {
             System.out.print(i + " ");
         }
+
+
     }
 
-
-    public static void insertionSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
+    public static void insertionSort(int[] nums) {
         // 外层循环控制需要排序的趟数（从1开始因为将第0位看成了有序数据）
-        for (int i = 1; i < arr.length; i++) {
-            int temp = arr[i]; // 把要插入的这个数据暂存起来，因为后移操作，可能会覆盖这个值
+        for (int i = 1; i < nums.length; i++) {
+            int temp = nums[i]; // 把要插入的这个数据暂存起来，因为后移操作，可能会覆盖这个值
             int j;
-            for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
-                arr[j + 1] = arr[j];  // 后移
+            for (j = i - 1; j >= 0 && nums[j] > temp; j--) {
+                nums[j + 1] = nums[j];  // 后移
             }
-            arr[j + 1] = temp;
+            nums[j + 1] = temp;
         }
     }
 

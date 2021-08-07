@@ -6,26 +6,26 @@ package 排序;
 public class 选择排序 {
 
     public static void main(String[] args) {
-        int[] arr = {2, 5, 1, 3, 8, 5, 7, 4, 3};
-        selectionSort(arr);
-        for (int i : arr) {
+        int[] nums = {2, 5, 1, 3, 8, 5, 7, 4, 3, -1, 200, -20, 0};
+        selectionSort(nums);
+        for (int i : nums) {
             System.out.print(i + " ");
         }
     }
 
-    public static void selectionSort(int[] arr) {
-        // // 总共要经过 N-1 轮比较
-        for (int i = 0; i < arr.length - 1; i++) {
+    public static void selectionSort(int[] nums) {
+         // 总共要经过 N-1 轮比较
+        for (int i = 0; i < nums.length - 1; i++) {
             int min = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] < nums[min]) {
                     min = j;
                 }
             }
             if (min != i) {
-                int temp = arr[min];
-                arr[min] = arr[i];
-                arr[i] = temp;
+                int temp = nums[min];
+                nums[min] = nums[i];
+                nums[i] = temp;
             }
         }
     }

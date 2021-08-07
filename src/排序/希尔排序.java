@@ -9,7 +9,7 @@ package 排序;
 public class 希尔排序 {
 
     public static void main(String[] args) {
-        int[] arr = {2, 5, 1, 3, 8, 5, 7, 4, 3};
+        int[] arr = {2, -10, 5, 1, 3, 8, 0, -5, -5, 29, 5, 7, 4, 3, -2, 100, 99};
         shellSort(arr);
         for (int i : arr) {
             System.out.print(i + " ");
@@ -17,12 +17,10 @@ public class 希尔排序 {
     }
 
     public static void shellSort(int[] arr) {
-        if (arr == null || arr.length < 2) {
-            return;
-        }
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < arr.length; i++) {
+            for (int i = gap; i < arr.length; i++) {  // 注意i是从gap开始的
                 int j = i;
+                // 注意理解这个while，假设一个很小的值交换到前面后，此时如果该小值还是小于其前面的值，则继续交换
                 while (j - gap >= 0 && arr[j] < arr[j - gap]) {
                     int temp = arr[j];
                     arr[j] = arr[j - gap];
