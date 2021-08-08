@@ -12,8 +12,6 @@ public class 插入排序 {
         for (int i : nums) {
             System.out.print(i + " ");
         }
-
-
     }
 
     public static void insertionSort(int[] nums) {
@@ -21,7 +19,7 @@ public class 插入排序 {
         for (int i = 1; i < nums.length; i++) {
             int temp = nums[i]; // 把要插入的这个数据暂存起来，因为后移操作，可能会覆盖这个值
             int j;
-            for (j = i - 1; j >= 0 && nums[j] > temp; j--) {
+            for (j = i - 1; j >= 0 && nums[j] > temp; j--) {  // 注意这个条件是nums[j] > temp
                 nums[j + 1] = nums[j];  // 后移
             }
             nums[j + 1] = temp;

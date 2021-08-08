@@ -14,7 +14,6 @@ public class 选择排序 {
     }
 
     public static void selectionSort(int[] nums) {
-         // 总共要经过 N-1 轮比较
         for (int i = 0; i < nums.length - 1; i++) {
             int min = i;
             for (int j = i + 1; j < nums.length; j++) {

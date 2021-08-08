@@ -9,22 +9,22 @@ package 排序;
 public class 希尔排序 {
 
     public static void main(String[] args) {
-        int[] arr = {2, -10, 5, 1, 3, 8, 0, -5, -5, 29, 5, 7, 4, 3, -2, 100, 99};
-        shellSort(arr);
-        for (int i : arr) {
+        int[] nums = {2, -10, 5, 1, 3, 8, 0, -5, -5, 29, 5, 7, 4, 3, -2, 100, 99};
+        shellSort(nums);
+        for (int i : nums) {
             System.out.print(i + " ");
         }
     }
 
-    public static void shellSort(int[] arr) {
-        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < arr.length; i++) {  // 注意i是从gap开始的
+    public static void shellSort(int[] nums) {
+        for (int gap = nums.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < nums.length; i++) {  // 注意i是从gap开始的
                 int j = i;
                 // 注意理解这个while，假设一个很小的值交换到前面后，此时如果该小值还是小于其前面的值，则继续交换
-                while (j - gap >= 0 && arr[j] < arr[j - gap]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - gap];
-                    arr[j - gap] = temp;
+                while (j - gap >= 0 && nums[j] < nums[j - gap]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j - gap];
+                    nums[j - gap] = temp;
                     j -= gap;
                 }
             }

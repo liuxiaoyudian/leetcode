@@ -39,7 +39,6 @@ public class 堆排序 {
     }
 
     /**
-     *
      * @param arr
      * @param n is the size of heap
      * @param i is node

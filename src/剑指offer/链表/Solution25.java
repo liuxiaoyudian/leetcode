@@ -7,9 +7,6 @@ public class Solution25 {
 
     /**
      * 迭代法
-     * @param list1
-     * @param list2
-     * @return
      */
     public ListNode Merge(ListNode list1,ListNode list2) {
         ListNode head = new ListNode(-1);
@@ -36,9 +33,6 @@ public class Solution25 {
 
     /**
      * 递归法
-     * @param list1
-     * @param list2
-     * @return
      */
     public ListNode Merge1(ListNode list1,ListNode list2) {
         if (list1 == null) {
