@@ -3,6 +3,8 @@ package 代码随想录.二叉树.traversal;
 import 代码随想录.二叉树.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,5 +32,27 @@ public class Solution94 {
         list.add(root.val);
         inoder(root.right, list);
     }
+
+
+    /**
+     * 迭代
+     */
+    public List<Integer> inorderTraversal1(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            if (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            } else {
+                cur = stack.pop();
+                list.add(cur.val);
+                cur = cur.right;
+            }
+        }
+        return list;
+    }
+
 
 }

@@ -3,6 +3,8 @@ package 代码随想录.二叉树.traversal;
 import 代码随想录.二叉树.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -29,6 +31,29 @@ public class Solution144 {
         list.add(root.val);
         preorder(root.left, list);
         preorder(root.right, list);
+    }
+
+    /**
+     * 迭代
+     */
+    public List<Integer> preorderTraversal1(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return list;
     }
 
 }

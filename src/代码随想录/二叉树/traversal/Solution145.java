@@ -2,8 +2,7 @@ package 代码随想录.二叉树.traversal;
 
 import 代码随想录.二叉树.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 145. 二叉树的后序遍历
@@ -29,6 +28,31 @@ public class Solution145 {
         postorder(root.left, list);
         postorder(root.right, list);
         list.add(root.val);
+    }
+
+    /**
+     * 迭代
+     * 后序遍历的实现是在前序遍历的实现上改的
+     */
+    public List<Integer> postorderTraversal1(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        Collections.reverse(list); // 中右左 -> 左右中
+        return list;
     }
 
 }
