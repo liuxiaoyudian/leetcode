@@ -5,7 +5,17 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * JZ34 第一个只出现一次的字符
+ *
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/50.%20第一个只出现一次的字符位置.md
+ */
 public class Solution50 {
+
+    public static void main(String[] args) {
+        char c = 'Z';
+        System.out.println((int)c);
+    }
 
     public static int FirstNotRepeatingChar(String str) {
         Map<Character, Integer> map = new HashMap<>();

@@ -5,6 +5,10 @@ import java.util.Set;
 
 public class Solution3 {
 
+    /**
+     * 使用set
+     * @return
+     */
     public int duplicate (int[] numbers) {
         Set<Integer> set = new HashSet<>();
         for (int i : numbers) {
@@ -16,6 +20,9 @@ public class Solution3 {
         return -1;
     }
 
+    /**
+     * 使用额外的标记数组
+     */
     public int duplicate1(int[] numbers) {
         int[] ret = new int[numbers.length];
         for (int i : numbers) {
@@ -28,9 +35,8 @@ public class Solution3 {
     }
 
     /**
-     * 交换法
-     * @param numbers
-     * @return
+     * 交换法（最优）
+     * 如果要求时间复杂度 O(N)，空间复杂度 O(1)。因此不能使用排序的方法，也不能使用额外的标记数组。
      */
     public int duplicate2(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {

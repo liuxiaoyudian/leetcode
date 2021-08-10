@@ -13,9 +13,6 @@ public class Solution31 {
 
     /**
      * 自己的解法
-     * @param pushA
-     * @param popA
-     * @return
      */
     public static boolean IsPopOrder(int [] pushA,int [] popA) {
         int i = 0, j = 0;
@@ -40,7 +37,26 @@ public class Solution31 {
         return true;
     }
 
+    /**
+     *  自己的另一个解法（更直观）
+     */
     public static boolean IsPopOrder1(int [] pushA,int [] popA) {
+        Stack<Integer> stack = new Stack<>();
+        int i = 0, j = 0;
+        while (i < pushA.length && j < popA.length) {
+            stack.push(pushA[i++]);
+            while (!stack.isEmpty() && stack.peek() == popA[j]) {
+                stack.pop();
+                j++;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    /**
+     * 提供的答案
+     */
+    public static boolean IsPopOrder2(int [] pushA,int [] popA) {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0, j = 0; i < pushA.length; i++) {
             stack.push(pushA[i]);
