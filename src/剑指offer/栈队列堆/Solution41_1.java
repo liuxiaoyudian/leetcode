@@ -7,6 +7,8 @@ public class Solution41_1 {
 
     public static void main(String[] args) {
         int[] arr = {5, 2, 3, 4, 1, 6, 7, 0, 8};
+        Insert(2);
+        System.out.println(GetMedian());
     }
 
 
@@ -15,13 +17,13 @@ public class Solution41_1 {
      * 注意这个和堆排序不一样，堆排序升序构造大顶堆，降序构造小顶堆。
      */
     /* 大顶堆，存储左半边元素 */
-    private PriorityQueue<Integer> left = new PriorityQueue<>((o1, o2) -> o2 - o1);
+    private static PriorityQueue<Integer> left = new PriorityQueue<>((o1, o2) -> o2 - o1);
     /* 小顶堆，存储右半边元素，并且右半边元素都大于左半边 */
-    private PriorityQueue<Integer> right = new PriorityQueue<>();
+    private static PriorityQueue<Integer> right = new PriorityQueue<>();
     /* 当前数据流读入的元素个数 */
-    private int N = 0;
+    private static int N = 0;
 
-    public void Insert(Integer num) {
+    public static void Insert(Integer num) {
         /* 插入要保证两个堆存于平衡状态 */
         if (N % 2 == 0) {
             /* N 为偶数的情况下插入到右半边。
@@ -36,7 +38,7 @@ public class Solution41_1 {
         N++;
     }
 
-    public Double GetMedian() {
+    public static Double GetMedian() {
         if (N % 2 == 0) {
             return (left.peek() + right.peek()) / 2.0;
         } else { // 为奇数的时候总是右边多一个，因为是先插入右边的
