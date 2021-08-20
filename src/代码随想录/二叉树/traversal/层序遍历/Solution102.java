@@ -15,6 +15,17 @@ import java.util.Queue;
  */
 public class Solution102 {
 
+    public static void main(String[] args) {
+        List<Integer> queue = new ArrayList<>();
+        queue.add(1);
+        queue.add(null);
+        queue.add(null);
+        queue.add(3);
+        System.out.println(queue);
+        System.out.println(null == null);
+
+    }
+
     /**
      * cyc的写法
      * 这两种写法是一样的没什么特别大的区别，下面一种写法执行效率会搞一丢丢
