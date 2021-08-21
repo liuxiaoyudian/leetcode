@@ -14,8 +14,10 @@ public class Solution239 {
 
     public static void main(String[] args) {
         Solution239 instance = new Solution239();
-        int[] nums = {-7, -8, 7, 5, 7, 1, 6, 0};
-        System.out.println(Arrays.toString(instance.maxSlidingWindow(nums, 4)));
+//        int[] nums = {-7, -8, 7, 5, 7, 1, 6, 0};
+        int[] nums = {2, 3, 4, 2, 6, 2, 5, 1};
+//        System.out.println(maxInWindows(nums, 3));
+        System.out.println(Arrays.toString(instance.maxSlidingWindow1(nums, 3)));
     }
 
     /**
@@ -95,8 +97,8 @@ public class Solution239 {
         void offer(int val) {
             // 注意这里不能是>=，只能是=，因为不光光有offer操作，还会有poll操作
             // 例子：{-7, -8, 7, 5, 7, 1, 6, 0} - k = 4
-            while (!deque.isEmpty() && val > deque.peekLast()) {
-                deque.pollLast();
+            while (!deque.isEmpty() && val > deque.peekLast()) { // 注意是末尾元素！peekLast
+                deque.pollLast(); // 注意是末尾元素！pollLast
             }
             deque.offer(val);
         }

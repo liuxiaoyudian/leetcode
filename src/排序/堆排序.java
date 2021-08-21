@@ -17,7 +17,6 @@ public class 堆排序 {
      * 3、堆排序的数据结构在逻辑上属于完全二叉树
      *
      * 大顶堆，用于升序
-     * @param arr
      */
     public static void heapSort(int[] arr) {
         int n = arr.length;
