@@ -26,7 +26,7 @@ public class 堆排序 {
         }
 
         // 排序，将最大的节点放在堆尾，然后从根节点重新调整
-        for (int i = n - 1; i > 0; i--) {
+        for (int i = n - 1; i > 0; i--) { // 注意这里是>0，不是>=0
             // Move current root to end
             int temp = arr[0];
             arr[0] = arr[i];
@@ -59,7 +59,7 @@ public class 堆排序 {
         }
 
         // If largest is not root
-        if (largest != i) {
+        if (largest != i) { // 注意判断这个条件
             int temp = arr[i];
             arr[i] = arr[largest];
             arr[largest] = temp;

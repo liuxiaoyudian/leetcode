@@ -38,7 +38,7 @@ public class 归并排序 {
             R[j] = nums[m + 1 + j];
         }
 
-        int k = l;
+        int k = l; // 注意k的值不是0哦
         int i = 0, j = 0;
         while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {

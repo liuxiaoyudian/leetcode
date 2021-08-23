@@ -1,15 +1,13 @@
 package 剑指offer.双指针;
 
+/**
+ * 58.1 翻转单词顺序列
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/58.1%20翻转单词顺序列.md
+ */
 public class Solution58_1 {
-
-    public static void main(String[] args) {
-        System.out.println(ReverseSentence1("student. a am I"));;
-    }
 
     /**
      * 自己实现的方法
-     * @param str
-     * @return
      */
     public String ReverseSentence(String str) {
         String[] list = str.split(" ");
@@ -23,11 +21,8 @@ public class Solution58_1 {
     /**
      * 输入 student. a am I
      * 处理的整体思路是先对每一个单词进行翻转，然后在对输入的句子的整体进行翻转
-     * @param str
-     * @return
      */
-    public static String ReverseSentence1(String str) {
-        // 需要注意，这里n是等于输入的原大小，并没有-1。
+    public String ReverseSentence1(String str) {
         int n = str.length();
         char[] chars = str.toCharArray();
         // i和j分别用来标记输入句子中，每一个单词的起始和终止的位置
@@ -45,27 +40,19 @@ public class Solution58_1 {
             }
             j++;
         }
-        // 这一步是对整个输入进行反转
         reverse(chars, 0, n - 1);
         return new String(chars);
     }
 
-    /**
-     * 这个方法的作用是对下标为[i, j]的区域进行翻转
-     * @param c
-     * @param i
-     * @param j
-     */
-    private static void reverse(char[] c, int i, int j) {
-        // 如果是偶数的情况，就一一交换，如果是奇数的情况，中间那个（即i=j时）是不需要交换的
-        while (i < j)
-            swap(c, i++, j--);
+    public void reverse(char[] chars, int i, int j) {
+        while (i < j) {
+            char temp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = temp;
+            i++;
+            j--;
+        }
     }
 
-    private static void swap(char[] c, int i, int j) {
-        char t = c[i];
-        c[i] = c[j];
-        c[j] = t;
-    }
 
 }

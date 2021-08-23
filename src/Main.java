@@ -18,8 +18,7 @@
 //                    setExclusiveOwnerThread(current);
 //                    return true;
 //                }
-//            }
-//            else if (current == getExclusiveOwnerThread()) {
+//            } else if (current == getExclusiveOwnerThread()) {
 //                int nextc = c + acquires;
 //                if (nextc < 0) // overflow
 //                    throw new Error("Maximum lock count exceeded");
@@ -57,7 +56,7 @@
 //            boolean failed = true;
 //            try {
 //                boolean interrupted = false;
-//                for (;;) {
+//                for (; ; ) {
 //                    final Node p = node.predecessor(); // 获取前驱结点
 //                    // 如果p == head，就说明该node紧邻着head（排第二位），此时就会再次尝试获取锁
 //                    if (p == head && tryAcquire(arg)) {
