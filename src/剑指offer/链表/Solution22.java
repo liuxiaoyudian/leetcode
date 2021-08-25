@@ -2,47 +2,41 @@ package 剑指offer.链表;
 
 /**
  * 链表中倒数第 K 个结点
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/22.%20链表中倒数第%20K%20个结点.md
  */
 public class Solution22 {
 
     /**
-     * 笨方法
-     * 思路是先遍历一遍链表，计算n
-     * @param pHead
-     * @param k
-     * @return
+     * 先遍历一遍链表，获得链表的长度
      */
     public ListNode FindKthToTail (ListNode pHead, int k) {
-        // write code here
         int n = 0;
-        ListNode i = pHead;
-        while (i != null) {
-            i = i.next;
+        ListNode cur = pHead;
+        while (cur != null) {
+            cur = cur.next;
             n++;
         }
-        int m = 0;
-        i = pHead;
-        while (i != null) {
-            if (m == n - k) {
-                return i;
-            }
-            i = i.next;
-            m++;
+
+        if (pHead == null || n < k) {
+            return null;
         }
-        return null;
+
+        ListNode dummy = new ListNode(-1);
+        dummy.next = pHead;
+        n -= k;
+        while (n-- >= 0) {
+            dummy = dummy.next;
+        }
+        return dummy;
     }
 
     /**
+     * 双指针
      * 解题思路：
      * 设链表的长度为 N。设置两个指针 P1 和 P2，先让 P1 移动 K 个节点，则还有 N - K 个节点可以移动。
      * 此时让 P1 和 P2 同时移动，可以知道当 P1 移动到链表结尾时，P2 移动到第 N - K 个节点处，该位置就是倒数第 K 个节点。
-     * 像这类倒数第几个节点的问题，一前一后的问题，就要想起来用双指针！
-     * @param pHead
-     * @param k
-     * @return
      */
     public ListNode FindKthToTail1 (ListNode pHead, int k) {
-        // write code here
         if (pHead == null) {
             return null;
         }

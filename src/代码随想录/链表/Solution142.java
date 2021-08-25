@@ -6,9 +6,10 @@ import java.util.Set;
 /**
  * 142. 环形链表 II
  * https://leetcode-cn.com/problems/linked-list-cycle-ii/
- *
  * https://github.com/liuxiaoyudian/leetcode-master/blob/master/problems/0142.环形链表II.md
+ *
  * 相同的题目：剑指offer 23
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/23.%20链表中环的入口结点.md
  */
 public class Solution142 {
 
@@ -38,7 +39,7 @@ public class Solution142 {
      *
      * 题目的两个隐藏条件：
      *  1、慢指针最多最多绕着环走一圈（pHead就是环入口的情况）
-     *  2、快指针最多走两圈（pHead就是环入口的情况），最少走一圈。
+     *  2、快指针最多走两圈（pHead就是环入口的情况），最少走一圈
      */
     public ListNode detectCycle1(ListNode head) {
         ListNode slow = head, fast = head;

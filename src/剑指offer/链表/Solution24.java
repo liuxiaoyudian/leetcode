@@ -1,5 +1,9 @@
 package 剑指offer.链表;
 
+/**
+ * 24. 反转链表
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/24.%20反转链表.md
+ */
 public class Solution24 {
 
     public static void main(String[] args) {
@@ -23,8 +27,6 @@ public class Solution24 {
     /**
      * 递归法
      * 每一个栈帧中都存了一个Head，并且Head.next==null
-     * @param head
-     * @return
      */
     public static ListNode ReverseList(ListNode head) {
         if (head == null || head.next == null) {
@@ -38,19 +40,32 @@ public class Solution24 {
     }
 
     /**
-     * 使用头插法，这个才是最简单的！！！！
-     * @param head
-     * @return
+     * 头插法
      */
     public ListNode ReverseList1(ListNode head) {
-        ListNode ret = new ListNode(-1);
+        ListNode dummy = new ListNode(-1);
         while (head != null) {
             ListNode next = head.next;
-            head.next = ret.next;
-            ret.next = head;
+            head.next = dummy.next;
+            dummy.next = head;
             head = next;
         }
-        return ret.next;
+        return dummy.next;
+    }
+
+    /**
+     * 迭代法（最优解法）
+     */
+    public ListNode ReverseList2(ListNode head) {
+        ListNode prev = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        return prev;
     }
 
 }

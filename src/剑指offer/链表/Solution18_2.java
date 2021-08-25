@@ -3,24 +3,12 @@ package 剑指offer.链表;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 18.2 删除链表中重复的结点
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/18.2%20删除链表中重复的结点.md
+ */
 public class Solution18_2 {
 
-    public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-//        ListNode l2 = new ListNode(2);
-//        ListNode l3 = new ListNode(3);
-//        ListNode l4 = new ListNode(3);
-//        ListNode l5 = new ListNode(4);
-//        ListNode l6 = new ListNode(4);
-//        ListNode l7 = new ListNode(5);
-//        l1.next = l2;
-//        l2.next = l3;
-//        l3.next = l4;
-//        l4.next = l5;
-//        l5.next = l6;
-//        l6.next = l7;
-//        deleteDuplication1(l1);
-    }
 
     /**
      * 暴力解法

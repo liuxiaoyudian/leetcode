@@ -3,13 +3,15 @@ package 剑指offer.链表;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 23. 链表中环的入口结点
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/23.%20链表中环的入口结点.md
+ */
 public class Solution23 {
 
 
     /**
-     * 自己想的方法，虽然简单但是使用了额外的空间
-     * @param pHead
-     * @return
+     * Set
      */
     public ListNode EntryNodeOfLoop(ListNode pHead) {
         Set<ListNode> set = new HashSet<>();
@@ -26,32 +28,30 @@ public class Solution23 {
 
 
     /**
-     * 快慢指针，fast一次两步，slow一次一步
-     * 两个结论：
-     * 1、如果有环，两者一定相遇
-     * 2、快指针从链表头，慢指针从相遇点继续出发，每次各走一步，最后一定相遇与环入口。
-     * 还有两个隐藏条件：
-     * 1、慢指针最多最多绕着环走一圈（pHead就是环入口的情况）
-     * 2、快指针最多走两圈（pHead就是环入口的情况），最少走一圈。
-     * @param pHead
-     * @return
+     * 快慢指针
+     * 慢指针1次走1步，快指针1次走2步
+     * 推导公式：a = (n-1) * (b + c) + c
+     * 公式含义：从快慢指针相遇点和head分别出发，1次走一步，相遇点就是环形入口
+     *
+     * 题目的两个隐藏条件：
+     *  1、慢指针最多最多绕着环走一圈（pHead就是环入口的情况）
+     *  2、快指针最多走两圈（pHead就是环入口的情况），最少走一圈
      */
     public ListNode EntryNodeOfLoop1(ListNode pHead) {
-        if (pHead == null || pHead.next == null) {
-            return null;
-        }
         ListNode fast = pHead, slow = pHead;
-        // do-while，先执行，再check
-        do {
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
             fast = fast.next.next;
-            slow = slow.next;
-        } while (fast != slow);
-        fast = pHead;
-        while (fast != slow) {
-            fast = fast.next;
-            slow = slow.next;
+            if (slow == fast) {
+                ListNode cur = pHead;
+                while (cur != slow) {
+                    cur = cur.next;
+                    slow = slow.next;
+                }
+                return cur;
+            }
         }
-        return fast;
+        return null;
     }
 
 }
