@@ -38,7 +38,6 @@ public class 二分查找 {
      */
     public static int leftBoundBinarySearch(int[] nums, int target) {
         int l = 0, r = nums.length;
-
         while (l < r) { // 终止条件为i == j时，此时搜索空间[i, j)恰巧为空
             // 下一步的搜索区间应该去掉 mid 分割成两个区间 [left, mid) 或 [mid + 1, right)
             int mid = l + ((r - l) >> 1);
