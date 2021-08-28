@@ -2,10 +2,17 @@ package 剑指offer.树;
 
 import java.util.Arrays;
 
+/**
+ * 7. 重建二叉树
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/7.%20重建二叉树.md
+ */
 public class Solution7 {
 
+    /**
+     * 递归
+     */
     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        if (pre.length == 0) {
+        if (pre.length == 0) { // 注意递归结束的条件
             return null;
         }
         if (pre.length == 1) {
@@ -15,7 +22,7 @@ public class Solution7 {
         TreeNode root = new TreeNode(pre[0]);
         //  找root所在的位置
         int rootIndex = -1;
-        for (int i = 0; i < pre.length; i++) {
+        for (int i = 0; i < in.length; i++) {
             if (in[i] == pre[0]) {
                 rootIndex = i;
                 break;

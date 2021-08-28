@@ -1,7 +1,8 @@
 package 剑指offer.链表;
 
 /**
- * 合并两个排序的链表
+ * 25. 合并两个排序的链表
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/25.%20合并两个排序的链表.md
  */
 public class Solution25 {
 

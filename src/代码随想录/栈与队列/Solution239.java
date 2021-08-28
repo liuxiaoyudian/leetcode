@@ -16,14 +16,14 @@ public class Solution239 {
         Solution239 instance = new Solution239();
 //        int[] nums = {-7, -8, 7, 5, 7, 1, 6, 0};
         int[] nums = {2, 3, 4, 2, 6, 2, 5, 1};
-//        System.out.println(maxInWindows(nums, 3));
-        System.out.println(Arrays.toString(instance.maxSlidingWindow1(nums, 3)));
+        System.out.println(maxSlidingWindow(nums, 3));
+//        System.out.println(Arrays.toString(instance.maxSlidingWindow1(nums, 3)));
     }
 
     /**
-     * 使用大顶堆来实现
+     * 大顶堆
      */
-    public int[] maxSlidingWindow(int[] nums, int k) {
+    public static int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
         // 特殊的大顶堆
         PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> o2[0] - o1[0]);
@@ -46,7 +46,7 @@ public class Solution239 {
                 j++;
             }
         }
-        res[i] = pq.peek()[0];
+        res[i] = pq.peek()[0]; // 不要漏了这一句
         return res;
     }
 
