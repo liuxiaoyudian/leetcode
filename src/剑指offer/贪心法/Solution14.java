@@ -9,19 +9,10 @@ public class Solution14 {
     /**
      * 思路：尽可能得多剪长度为 3 的绳子，并且不允许有长度为 1 的绳子出现。
      * 如果出现了，就从已经切好长度为 3 的绳子中拿出一段与长度为 1 的绳子重新组合，把它们切成两段长度为 2 的绳子。
-     *
-     * @param n
-     * @return
      */
     public int cutRope(int n) {
-        if (n < 2) {
-            return 0;
-        }
-        if (n == 2) {
-            return 1;
-        }
-        if (n == 3) {
-            return 2;
+        if (n < 4) {
+            return n - 1;
         }
 
         if (n % 3 == 0) {
@@ -45,9 +36,6 @@ public class Solution14 {
      * 设划分点为i，f[i]表示长度为i的绳子的乘积最大值。
      * <p>
      * 当n=8时，dp = {0 1 1 2 4 6 9 12 18}
-     *
-     * @param n
-     * @return
      */
     public static int cutRope1(int n) {
         int[] f = new int[n + 1];

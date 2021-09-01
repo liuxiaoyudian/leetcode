@@ -1,33 +1,30 @@
 package 剑指offer.贪心法;
 
+/**
+ * 121. 买卖股票的最佳时机
+ * https://github.com/CyC2018/CS-Notes/blob/master/notes/63.%20股票的最大利润.md
+ * https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+ */
 public class Solution63 {
 
-    public static void main(String[] args) {
-//        int[] arr = {7, 1, 5, 3, 6, 4};
-//        System.out.println(maxProfit(arr));
-    }
-
     /**
-     * 暴力法
-     * @param prices
-     * @return
+     * 暴力法（超时）
      */
-    public int maxProfit(int prices[]) {
-        int maxprofit = 0;
-        for (int i = 0; i < prices.length - 1; i++) {
-            for (int j = i + 1; j < prices.length; j++) {
-                int profit = prices[j] - prices[i];
-                if (profit > maxprofit)
-                    maxprofit = profit;
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int profit = 0;
+        for (int i = 0; i < n - 1; i++) {
+            int max = prices[i + 1];
+            for (int j = i + 2; j < n; j++) {
+                max = Math.max(max, prices[j]);
             }
+            profit = Math.max(profit, max - prices[i]);
         }
-        return maxprofit;
+        return profit;
     }
 
     /**
      * 更优的解法，时间复杂度O(n)
-     * @param prices
-     * @return
      */
     public int maxProfit1(int prices[]) {
         int maxProfit = 0;
