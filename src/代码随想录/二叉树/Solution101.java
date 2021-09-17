@@ -60,8 +60,7 @@ public class Solution101 {
     }
 
     /**
-     * 自己实现
-     * 思路：先层序遍历，然后利用双指针法判断每一层是否对称
+     * 先层序遍历，然后利用双指针法判断每一层是否对称
      */
     public boolean isSymmetric2(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();

@@ -17,6 +17,9 @@ public class 二分查找 {
 
     }
 
+    /**
+     * 时间复杂度：O(log(n))
+     */
     public static int binarySearch(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
