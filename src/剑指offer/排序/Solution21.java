@@ -1,22 +1,21 @@
 package 剑指offer.排序;
 
 
+import java.util.Arrays;
+
 /**
  * 调整数组顺序使奇数位于偶数前面
  * https://github.com/CyC2018/CS-Notes/blob/master/notes/21.%20调整数组顺序使奇数位于偶数前面.md
  */
 public class Solution21 {
 
-
     /**
-     * 这个ac不了，超时了，通过率80%
-     * @param array
-     * @return
+     * 利用冒泡排序的思想，会超时
      */
-    public int[] reOrderArray(int[] array) {
-        int n = array.length;
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - 1 - i; j++) {
+    public static int[] reOrderArray(int[] array) {
+        int even = array.length;
+        for (int i = 0; i < even - 1; i++) {
+            for (int j = 0; j < even - 1 - i; j++) {
                 if (array[j] % 2 == 0 && array[j + 1] % 2 == 1) {
                     int temp = array[j];
                     array[j] = array[j + 1];
@@ -29,41 +28,30 @@ public class Solution21 {
 
 
     /**
-     * 通过创建两个数组（奇数数组和偶数数组）来实现
-     *
-     * @param array
-     * @return
+     * 创建两个数组（奇数数组和偶数数组）
      */
     public int[] reOrderArray1(int[] array) {
-        // write code here
-        int len = array.length;
-        int[] odds = new int[len];
-        int[] evens = new int[len];
-        int n = 0, m = 0;
+        int n = array.length;
+        int[] odds = new int[n]; // 奇数数组
+        int[] evens = new int[n]; // 偶数数组
+        int odd = 0, even = 0;
         for (int i : array) {
-            if (i % 2 == 0) {
-                odds[m++] = i;
+            if (i % 2 == 1) {
+                odds[odd++] = i;
             } else {
-                evens[n++] = i;
+                evens[even++] = i;
             }
         }
-        int[] ret = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (i < n) {
-                ret[i] = evens[i];
-            } else {
-                ret[i] = odds[i - n];
-            }
+        for (int i = 0; i < n; i++) {
+            array[i] = i < odd ? odds[i] : evens[i - odd];
         }
-        return ret;
+        return array;
     }
+
 
     /**
      * 也是通过创建新数组来实现（另外一种实现，先找oddCnt）
      * 这种方法只需要创建一个新数组就够了
-     *
-     * @param array
-     * @return
      */
     public int[] reOrderArray2(int[] array) {
         int oddCnt = 0;

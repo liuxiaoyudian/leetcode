@@ -19,8 +19,33 @@ public class 全排列 {
 //        PermutationWithDictionary(chs);
     }
 
+    /**
+     * 1、递归法（结果直接输出）
+     */
+    public static void Permutation(char[] chs, int start) {
+        if (start == chs.length - 1) {
+            System.out.println(Arrays.toString(chs));
+            return; // 这里需要加一个return，不然会多几次没用的递归
+        }
+        for (int i = start; i < chs.length; i++) {
+            // 注意：这个方法会对重复元素进行交换，比如使用递归对{1，1}进行全排序会输出：{1，1}，{1，1}两个重复的结果。
+            if (i == start || chs[start] != chs[i]) { // 加上这个if语句，就可以去重
+                swap(chs, start, i);  // 把第一个元素分别与后面的元素进行交换，递归的调用其子数组进行排序
+                Permutation(chs, start + 1);
+                swap(chs, start, i); // 子数组排序返回后要将第一个元素交换回来
+            }
+        }
+    }
 
-    // 这种实现可以将全排列的结果存储起来
+    public static void swap(char[] chs, int i, int j) {
+        char temp = chs[i];
+        chs[i] = chs[j];
+        chs[j] = temp;
+    }
+
+    /**
+     * 1、递归法（结果存储下来）
+     */
     public static List<List<Character>> Permutation(char[] chs) {
         List<List<Character>> list = new ArrayList<>();
         helper(chs, 0, list);
@@ -37,35 +62,12 @@ public class 全排列 {
             return;
         }
         for (int i = start; i < chs.length; i++) {
-            swap(chs, start, i);
-            helper(chs, start + 1, list);
-            swap(chs, start, i);
+            if (i == start || chs[start] != chs[i]) {
+                swap(chs, start, i);
+                helper(chs, start + 1, list);
+                swap(chs, start, i);
+            }
         }
-    }
-
-    /**
-     * 递归法
-     * 注意：这个方法会对重复元素进行交换比如使用递归对{1，1}进行全排序会输出：{1，1}，{1，1}两个重复的结果。
-     *
-     * @param chs
-     * @param start
-     */
-    public static void Permutation(char[] chs, int start) {
-        if (start == chs.length - 1) {
-            System.out.println(Arrays.toString(chs));
-            return; // 这里需要加一个return，不然会多几次没用的递归
-        }
-        for (int i = start; i < chs.length; i++) {
-            swap(chs, start, i);  // 把第一个元素分别与后面的元素进行交换，递归的调用其子数组进行排序
-            Permutation(chs, start + 1);
-            swap(chs, start, i); // 子数组排序返回后要将第一个元素交换回来。
-        }
-    }
-
-    public static void swap(char[] chs, int i, int j) {
-        char temp = chs[i];
-        chs[i] = chs[j];
-        chs[j] = temp;
     }
 
 
@@ -80,8 +82,6 @@ public class 全排列 {
      * 2、从右向左找到第一个比非递增元素大的元素
      * 3、交换找到的两个元素
      * 4、对第一个非递增元素位置后面的数组进行逆序排列
-     *
-     * @param chs
      */
     public static void PermutationWithDictionary(char chs[]) {
         // 先对数组的元素进行依次排序
@@ -105,12 +105,6 @@ public class 全排列 {
         }
     }
 
-    /**
-     * 从start起
-     *
-     * @param chs
-     * @param start
-     */
     public static void reverse(char chs[], int start) {
         int end = chs.length - 1;
         while (start < end) {
