@@ -59,4 +59,28 @@ public class 归并排序 {
         }
     }
 
+    /**
+     * 另外一种写法
+     */
+    public static void merge1(int[] nums, int l, int m, int r) {
+        int[] temp = new int[r - l + 1];
+        int i = l, j = m + 1, k = 0;
+        while (i <= m && j <= r) {
+            if (nums[i] <= nums[j]) {
+                temp[k++] = nums[i++];
+            } else {
+                temp[k++] = nums[j++];
+            }
+        }
+        while (i <= m) {
+            temp[k++] = nums[i++];
+        }
+        while (j <= r) {
+            temp[k++] = nums[j++];
+        }
+        for (int n = 0; n < k; n++) {
+            nums[n + l] = temp[n];
+        }
+    }
+
 }
