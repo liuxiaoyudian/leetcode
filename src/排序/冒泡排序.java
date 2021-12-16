@@ -8,7 +8,6 @@ public class 冒泡排序 {
         for (int i : nums) {
             System.out.print(i + " ");
         }
-
     }
 
     public static void bubbleSort(int[] nums) {

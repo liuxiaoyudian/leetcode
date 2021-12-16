@@ -17,15 +17,15 @@ public class 快速排序 {
      */
     public static void quickSort(int[] nums, int l, int r) {
         if (l < r) { // l = r的时候就只有一个元素，不需要排序
-            int i = l, j = r, k = nums[l]; // 用x将关键字缓存起来
+            int i = l, j = r, k = nums[l]; // 用k将关键字缓存起来
             while (i < j) {
-                while (i < j && k <= nums[j]) {
+                while (i < j && nums[j] >= k) {
                     j--;
                 }
                 if (i < j) {
                     nums[i++] = nums[j];
                 }
-                while (i < j && k > nums[i]) {
+                while (i < j && nums[i] < k) {
                     i++;
                 }
                 if (i < j) {
